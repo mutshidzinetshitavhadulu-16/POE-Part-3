@@ -1,8 +1,5 @@
 # POE Part 3 - POEMutshidzi
 
-Student: Mutshidzi Netshitavhadulu
-Module: PROG5121 / POE Part 3
-
 ## Description
 QuickChat messaging application with login, registration, message sending, storing, and JSON storage.
 
