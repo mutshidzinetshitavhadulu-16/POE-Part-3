@@ -128,7 +128,7 @@ public class SendMessage {
         }
     }
 
-    // PART 3 - STORED MENU 2a-2f
+    // PART 3 - STORED MENU 
     public static void storedMessagesMenu() {
         loadStoredMessagesFromFile();
         while (true) {
@@ -167,7 +167,7 @@ public class SendMessage {
         }
     }
 
-    // PART 3 - TEST DATA ONLY - NOT used by the app menu
+    // PART 3 - TEST DATA ONLY 
     public static void populateTestData() {
         allMessages.clear(); sentMessages.clear(); disregardedMessages.clear(); storedMessages.clear();
         messageHashes.clear(); messageIDs.clear();
@@ -193,28 +193,28 @@ public class SendMessage {
         if (flag.equals("Stored")) { storedMessages.add(msg); storedRecipients.add(rec); storedSenders.add(snd); storedIDs.add(id); storedHashes.add(hash); }
     }
 
-    // 2a
+    
     public static String displaySenderAndRecipient() {
         if (storedMessages.size() == 0) return "No stored messages.";
         String out = "";
         for (int i = 0; i < storedMessages.size(); i++) out += "Sender: " + storedSenders.get(i) + " | Recipient: " + storedRecipients.get(i) + "\n";
         return out.trim();
     }
-    // 2b
+    
     public static String getLongestStoredMessage() {
         if (storedMessages.size() == 0) return "No stored messages.";
         String longest = storedMessages.get(0);
         for (String m : storedMessages) if (m.length() > longest.length()) longest = m;
         return longest;
     }
-    // 2c
+    
     public static String searchMessageByID(String id) {
         for (int i = 0; i < storedIDs.size(); i++) if (storedIDs.get(i).equals(id)) return "Recipient: " + storedRecipients.get(i) + "\nMessage: " + storedMessages.get(i);
         for (int i = 0; i < sentIDs.size(); i++) if (sentIDs.get(i).equals(id)) return "Recipient: " + sentRecipients.get(i) + "\nMessage: " + sentMessages.get(i);
         for (int i = 0; i < sentRecipients.size(); i++) if (sentRecipients.get(i).equals(id)) return "Recipient: " + sentRecipients.get(i) + "\nMessage: " + sentMessages.get(i);
         return "Message ID not found.";
     }
-    // 2d
+    
     public static String searchMessagesByRecipient(String rec) {
         String out = "";
         for (int i = 0; i < storedMessages.size(); i++) if (storedRecipients.get(i).equals(rec)) out += storedMessages.get(i) + "\n";
@@ -222,7 +222,7 @@ public class SendMessage {
         if (out.isEmpty()) return "No messages found for " + rec;
         return out.trim();
     }
-    // 2e
+    
     public static String deleteMessageByHash(String hash) {
         for (int i = 0; i < storedHashes.size(); i++) {
             if (storedHashes.get(i).equals(hash)) {
@@ -242,7 +242,7 @@ public class SendMessage {
         }
         return "Message hash not found.";
     }
-    // 2f
+    
     public static String displayReport() {
         if (storedMessages.size() == 0 && sentMessages.size() == 0) return "No messages to report.";
         String out = "--- REPORT ---\n";
